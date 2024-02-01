@@ -17,9 +17,9 @@ import javax.servlet.http.HttpSession;
 public class LoginMemberArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        //핸들러어댑터에게 파라미터를 지원할지 말지 결정하는 메소드. 검사를해야한다그래서
-        // hasLoginAnnotation은 파라미터에 @Login 어노테이션이 붙어있는지 여부를 확인합니다.
-        //hasMemberType은 파라미터의 타입이 Member 클래스나 그의 하위 클래스인지를 확인합니다.
+        //핸들러어댑터에게 파라미터를 지원할지 말지 결정하는 메소드. 그러므로 검사를해야한다
+        // hasLoginAnnotation은 파라미터에 @Login 어노테이션이 붙어있는지 여부를 확인.
+        //hasMemberType은 파라미터의 타입이 Member 클래스나 그의 하위 클래스인지를 확인.
         log.info("supportsParameter 실행");
 
         boolean hasLoginAnnotation = parameter.hasParameterAnnotation(Login.class);//파라미터에 로그인 에노테이션이 붙어있는가물어봄
@@ -46,6 +46,5 @@ public class LoginMemberArgumentResolver implements HandlerMethodArgumentResolve
 
         //반환된 파라미터는 이젠 핸들러어댑터거쳐서 컨트롤러 메서드 파라미터로 전달됨.
     }
-
 
 }

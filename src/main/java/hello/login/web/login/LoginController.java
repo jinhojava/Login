@@ -87,8 +87,8 @@ public class LoginController {
             bindingResult.reject("loginFail", "아이디또는 비밀번호가 맞지않습니다.");
             return "login/loginForm";//글로벌오류
         }
-        //로그인 성공처리
 
+        //로그인 성공처리
         //세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성, 고유한 id를 가진 세션이 생성된다.
         HttpSession session = request.getSession();//(true)기본값임 false로하고 세션이 없으면 새로운 새션생성안하고null반환
 
@@ -115,7 +115,7 @@ public class LoginController {
         //로그인 성공처리
 
         //세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성, 고유한 id를 가진 세션이 생성된다.
-        HttpSession session = request.getSession();//(true)기본값임 false로하고 세션이 없으면 새로운 새션생성안하고null반환
+        HttpSession session = request.getSession();//(true)기본값임 //false경우 세션이 없으면 새로운 새션생성안하고null반환
 
         //세션에 로그인 회원 정보를 보관
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);//세션에 보관하고싶은 객체담기

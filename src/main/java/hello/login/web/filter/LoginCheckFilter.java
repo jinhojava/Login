@@ -37,7 +37,7 @@ import java.io.IOException;
                      return;//인증안되면 다음 필터나 컨트롤러로 못넘어감. finally문 실행되고 메소드 종료
                  }
             }
-                chain.doFilter(request, response);//(whitelist이면)false면 다음 필터로 가든가 아님 서블릿으로
+                chain.doFilter(request, response);//(whitelist이면) false면 다음 필터로 가든가 아님 서블릿으로 넘어감
         }catch (Exception e){
             throw e;
         }finally {

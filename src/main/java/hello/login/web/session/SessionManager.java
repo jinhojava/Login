@@ -16,18 +16,20 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class SessionManager {
     public static final String SESSION_COOKIE_NAME = "mysessionId";
-    //<세션아이디,객체>
-    private Map<String, Object> sessionStore = new ConcurrentHashMap<>();//동시에 여러요청 여러쓰레드 처리시 권장
+    //          <세션아이디,객체>
+    private Map<String, Object> sessionStore = new ConcurrentHashMap<>();
+    //ConcurrentHashMap - 동시에 여러요청 여러 쓰레드 처리시 권장
+
+
     /*
      * 세션생성
      *  sessionId생성(임의의 추정 불가능한 랜덤 값)
      *  세션저장소에 sessionId와 보관함 값 저장
      *  sessionId로 응답 쿠키를 생성해서 클라이언트에 전달
      * */
-
     public void createSession(Object value, HttpServletResponse response) {
         //세션 id를 생성하고, 값을 세션에 저장
-        String sessionId = UUID.randomUUID().toString(); //난수생성
+        String sessionId = UUID.randomUUID().toString(); //난수 생성
         sessionStore.put(sessionId, value);
 
         //쿠키생성
