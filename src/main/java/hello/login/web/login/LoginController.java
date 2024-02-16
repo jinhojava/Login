@@ -99,6 +99,8 @@ public class LoginController {
     }
 
 
+    //@Valid 어노테이션이 적용된 LoginForm 객체에 대한 유효성 검사가 수행됩니다.
+    //BindingResult:유효성 검사 결과를 저장하는 객체입니다. BindingResult 객체를 사용하여 유효성 검사의 결과를 확인할 수 있습니다.
     @PostMapping("/login")//HTTP세션활용//로그인필터 리다이렉트 추가
     public String loginV4(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult,
                           @RequestParam(defaultValue = "/")String redirectURL,//redirectURL비어있으면 기본값/
